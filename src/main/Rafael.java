@@ -2,7 +2,7 @@
 package main;
 
 
-public class App {
+public class Rafael {
     public static void main(String[] args) {
         System.out.println("Rafael Henrique");
     }
