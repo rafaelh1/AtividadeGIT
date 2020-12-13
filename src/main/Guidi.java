@@ -6,5 +6,6 @@ public class Guidi {
         System.out.println("Luísa Guidi");
         System.out.println("Rafael Henrique");
         System.out.println("John Allan");
+       System.out.println("Luíza Coltri");
     }
 }

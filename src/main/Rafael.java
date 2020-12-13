@@ -7,5 +7,6 @@ public class Rafael {
         System.out.println("Rafael Henrique"); 
         System.out.println("John Allan");
         System.out.println("Luísa Guidi");
+        System.out.println("Luíza Coltri");
     }
 }
