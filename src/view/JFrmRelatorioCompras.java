@@ -18,10 +18,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author Rafael
- */
+
 public class JFrmRelatorioCompras extends javax.swing.JFrame {
 
     /**
