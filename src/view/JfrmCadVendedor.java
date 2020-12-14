@@ -58,6 +58,7 @@ public class JfrmCadVendedor extends JPanel {
         refreshButton = new javax.swing.JButton();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         FormListener formListener = new FormListener();
 
@@ -115,6 +116,9 @@ public class JfrmCadVendedor extends JPanel {
 
         deleteButton.addActionListener(formListener);
 
+        jButton1.setText("Relatorio");
+        jButton1.addActionListener(formListener);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,6 +128,8 @@ public class JfrmCadVendedor extends JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(newButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteButton)
@@ -169,7 +175,8 @@ public class JfrmCadVendedor extends JPanel {
                     .addComponent(saveButton)
                     .addComponent(refreshButton)
                     .addComponent(deleteButton)
-                    .addComponent(newButton))
+                    .addComponent(newButton)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -192,6 +199,9 @@ public class JfrmCadVendedor extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 JfrmCadVendedor.this.deleteButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == jButton1) {
+                JfrmCadVendedor.this.jButton1ActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -245,6 +255,17 @@ public class JfrmCadVendedor extends JPanel {
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false); 
+        try {
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioVendedor.jasper", null, dados);
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
+            visualizador.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(JfrmCadVendedor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpfField;
@@ -253,6 +274,7 @@ public class JfrmCadVendedor extends JPanel {
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JTextField idvendedorField;
     private javax.swing.JLabel idvendedorLabel;
+    private javax.swing.JButton jButton1;
     private java.util.List<view.Vendedor> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
