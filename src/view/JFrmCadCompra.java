@@ -83,7 +83,7 @@ public class JFrmCadCompra extends JPanel {
         columnBinding.setColumnClass(Integer.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${data}"));
         columnBinding.setColumnName("Data");
-        columnBinding.setColumnClass(String.class);
+        columnBinding.setColumnClass(java.util.Date.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${hora}"));
         columnBinding.setColumnName("Hora");
         columnBinding.setColumnClass(java.util.Date.class);
@@ -99,6 +99,9 @@ public class JFrmCadCompra extends JPanel {
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
+        if (masterTable.getColumnModel().getColumnCount() > 0) {
+            masterTable.getColumnModel().getColumn(2).setCellRenderer(null);
+        }
 
         idcompraLabel.setText("Idcompra:");
 
@@ -117,6 +120,8 @@ public class JFrmCadCompra extends JPanel {
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), idcompraField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        idcompraField.addActionListener(formListener);
 
         saveButton.setText("Save");
         saveButton.addActionListener(formListener);
@@ -165,6 +170,8 @@ public class JFrmCadCompra extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), jFormattedTextField2, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        jFormattedTextField2.addActionListener(formListener);
+
         jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.hora}"), jFormattedTextField3, org.jdesktop.beansbinding.BeanProperty.create("value"));
@@ -179,7 +186,7 @@ public class JFrmCadCompra extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 33, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(newButton)
@@ -189,7 +196,7 @@ public class JFrmCadCompra extends JPanel {
                         .addComponent(refreshButton)
                         .addGap(18, 18, 18)
                         .addComponent(saveButton)
-                        .addGap(14, 14, 14))
+                        .addGap(92, 92, 92))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +216,7 @@ public class JFrmCadCompra extends JPanel {
                                     .addComponent(idcompraField)
                                     .addComponent(jFormattedTextField2)
                                     .addComponent(jFormattedTextField3)))
-                            .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))))
+                            .addComponent(masterScrollPane))))
                 .addContainerGap())
         );
 
@@ -219,7 +226,7 @@ public class JFrmCadCompra extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idcompraLabel)
@@ -242,7 +249,9 @@ public class JFrmCadCompra extends JPanel {
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(livroIdlivroLabel)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
@@ -275,6 +284,12 @@ public class JFrmCadCompra extends JPanel {
             }
             else if (evt.getSource() == jButton1) {
                 JFrmCadCompra.this.jButton1ActionPerformed(evt);
+            }
+            else if (evt.getSource() == idcompraField) {
+                JFrmCadCompra.this.idcompraFieldActionPerformed(evt);
+            }
+            else if (evt.getSource() == jFormattedTextField2) {
+                JFrmCadCompra.this.jFormattedTextField2ActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -338,6 +353,14 @@ public class JFrmCadCompra extends JPanel {
             Logger.getLogger(JFrmCadCompra.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void idcompraFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idcompraFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idcompraFieldActionPerformed
+
+    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

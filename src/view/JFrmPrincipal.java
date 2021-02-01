@@ -166,6 +166,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Cart_605508.png"))); // NOI18N
         jMenuItem10.setText("Vendas");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem10);
 
         jMenuBar1.add(jMenu3);
@@ -227,6 +232,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         JfrmCadVendedor.main(null);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        JFrmCadCompra.main(null);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments

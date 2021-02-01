@@ -43,8 +43,10 @@ public class Compra implements Serializable {
     @Basic(optional = false)
     @Column(name = "idcompra")
     private Integer idcompra;
+    
     @Column(name = "data")
-    private String data;
+    @Temporal(TemporalType.DATE)
+    private Date data;
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
@@ -77,15 +79,25 @@ public class Compra implements Serializable {
         changeSupport.firePropertyChange("idcompra", oldIdcompra, idcompra);
     }
 
-    public String getData() {
+    public PropertyChangeSupport getChangeSupport() {
+        return changeSupport;
+    }
+
+    public void setChangeSupport(PropertyChangeSupport changeSupport) {
+        this.changeSupport = changeSupport;
+    }
+
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
-        String oldData = this.data;
+    public void setData(Date data) {
+        Date oldData = this.data;
         this.data = data;
         changeSupport.firePropertyChange("data", oldData, data);
     }
+
+    
 
     public Date getHora() {
         return hora;
