@@ -72,6 +72,7 @@ public class JFrmCadCompra extends JPanel {
         jButton1 = new javax.swing.JButton();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        datCelRender1 = new render.DatCelRender();
 
         FormListener formListener = new FormListener();
 
@@ -100,7 +101,7 @@ public class JFrmCadCompra extends JPanel {
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
         if (masterTable.getColumnModel().getColumnCount() > 0) {
-            masterTable.getColumnModel().getColumn(2).setCellRenderer(null);
+            masterTable.getColumnModel().getColumn(2).setCellRenderer(datCelRender1);
         }
 
         idcompraLabel.setText("Idcompra:");
@@ -179,6 +180,8 @@ public class JFrmCadCompra extends JPanel {
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), jFormattedTextField3, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
 
+        datCelRender1.setText("datCelRender1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -196,7 +199,8 @@ public class JFrmCadCompra extends JPanel {
                         .addComponent(refreshButton)
                         .addGap(18, 18, 18)
                         .addComponent(saveButton)
-                        .addGap(92, 92, 92))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(datCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +262,8 @@ public class JFrmCadCompra extends JPanel {
                     .addComponent(refreshButton)
                     .addComponent(deleteButton)
                     .addComponent(newButton)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(datCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -367,6 +372,7 @@ public class JFrmCadCompra extends JPanel {
     private javax.swing.JLabel clienteIdclienteLabel;
     private java.util.List<view.Cliente> clienteList;
     private javax.persistence.Query clienteQuery;
+    private render.DatCelRender datCelRender1;
     private javax.swing.JLabel dataLabel;
     private javax.swing.JButton deleteButton;
     private javax.persistence.EntityManager entityManager;
