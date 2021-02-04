@@ -5,11 +5,15 @@
  */
 package view;
 
+
+
 /**
  *
  * @author Rafael
  */
 public class JFrmPrincipal extends javax.swing.JFrame {
+
+    
 
     /**
      * Creates new form JFrmPrincipal
@@ -43,6 +47,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
 
@@ -114,7 +119,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder__67ui_2303172.png"))); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
         jMenuItem2.setText("Cliente");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,15 +154,34 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_27_3319617.png"))); // NOI18N
         jMenuItem5.setText("Vendas");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Safe_877017.png"))); // NOI18N
         jMenuItem6.setText("Vendedor");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Book_3069185.png"))); // NOI18N
-        jMenuItem7.setText("Livros");
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
+        jMenuItem7.setText("Cliente");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem7);
+
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_00-ELASTOFONT-STORE-READY_user-circle_2703062.png"))); // NOI18N
+        jMenuItem11.setText("Usuário");
+        jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
 
@@ -238,6 +262,21 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         JFrmCadVenda.main(null);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        JFrmRelatorios.main(null);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        JFrmRelatorios.main(null);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        JFrmRelatorios.main(null);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,6 +323,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
