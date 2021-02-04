@@ -148,7 +148,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Relatorios");
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_27_3319617.png"))); // NOI18N
-        jMenuItem5.setText("Compras");
+        jMenuItem5.setText("Vendas");
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Safe_877017.png"))); // NOI18N
@@ -235,7 +235,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        JFrmCadCompra.main(null);
+        JFrmCadVenda.main(null);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**

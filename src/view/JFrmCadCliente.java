@@ -267,7 +267,7 @@ public class JFrmCadCliente extends JPanel {
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             visualizador.setVisible(true);
         } catch (JRException ex) {
-            Logger.getLogger(JFrmCadCompra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JFrmCadVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

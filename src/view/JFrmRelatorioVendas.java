@@ -19,12 +19,12 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 
 
-public class JFrmRelatorioCompras extends javax.swing.JFrame {
+public class JFrmRelatorioVendas extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrmRelatorioCompras
      */
-    public JFrmRelatorioCompras() {
+    public JFrmRelatorioVendas() {
         initComponents();
     }
 
@@ -151,7 +151,7 @@ public class JFrmRelatorioCompras extends javax.swing.JFrame {
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             visualizador.setVisible(true);
         } catch (JRException ex) {
-            Logger.getLogger(JFrmCadCompra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JFrmCadVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -172,20 +172,21 @@ public class JFrmRelatorioCompras extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrmRelatorioCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmRelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrmRelatorioCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmRelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrmRelatorioCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmRelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrmRelatorioCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmRelatorioVendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrmRelatorioCompras().setVisible(true);
+                new JFrmRelatorioVendas().setVisible(true);
             }
         });
     }

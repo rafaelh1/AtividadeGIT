@@ -24,9 +24,9 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author Rafael
  */
-public class JFrmCadCompra extends JPanel {
+public class JFrmCadVenda extends JPanel {
     
-    public JFrmCadCompra() {
+    public JFrmCadVenda() {
         initComponents();
         if (!Beans.isDesignTime()) {
             entityManager.getTransaction().begin();
@@ -275,26 +275,26 @@ public class JFrmCadCompra extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
-                JFrmCadCompra.this.saveButtonActionPerformed(evt);
+            if (evt.getSource() == idcompraField) {
+                JFrmCadVenda.this.idcompraFieldActionPerformed(evt);
+            }
+            else if (evt.getSource() == saveButton) {
+                JFrmCadVenda.this.saveButtonActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
-                JFrmCadCompra.this.refreshButtonActionPerformed(evt);
+                JFrmCadVenda.this.refreshButtonActionPerformed(evt);
             }
             else if (evt.getSource() == newButton) {
-                JFrmCadCompra.this.newButtonActionPerformed(evt);
+                JFrmCadVenda.this.newButtonActionPerformed(evt);
             }
             else if (evt.getSource() == deleteButton) {
-                JFrmCadCompra.this.deleteButtonActionPerformed(evt);
+                JFrmCadVenda.this.deleteButtonActionPerformed(evt);
             }
             else if (evt.getSource() == jButton1) {
-                JFrmCadCompra.this.jButton1ActionPerformed(evt);
-            }
-            else if (evt.getSource() == idcompraField) {
-                JFrmCadCompra.this.idcompraFieldActionPerformed(evt);
+                JFrmCadVenda.this.jButton1ActionPerformed(evt);
             }
             else if (evt.getSource() == jFormattedTextField2) {
-                JFrmCadCompra.this.jFormattedTextField2ActionPerformed(evt);
+                JFrmCadVenda.this.jFormattedTextField2ActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -355,7 +355,7 @@ public class JFrmCadCompra extends JPanel {
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             visualizador.setVisible(true);
         } catch (JRException ex) {
-            Logger.getLogger(JFrmCadCompra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JFrmCadVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -415,21 +415,22 @@ public class JFrmCadCompra extends JPanel {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrmCadCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmCadVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrmCadCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmCadVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrmCadCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmCadVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrmCadCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFrmCadVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
-                frame.setContentPane(new JFrmCadCompra());
+                frame.setContentPane(new JFrmCadVenda());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setLocationRelativeTo(null);
