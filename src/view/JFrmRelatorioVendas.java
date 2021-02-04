@@ -40,7 +40,7 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("bd_relatorio_livraria?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
         compraQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM Compra c");
-        compraList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : compraQuery.getResultList();
+        compraList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(compraQuery.getResultList());
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -48,6 +48,7 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
         txt_dtInicial = new javax.swing.JFormattedTextField();
         txt_dtFinal = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
+        datCelRender1 = new render.DatCelRender();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,14 +67,16 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
         columnBinding.setColumnClass(java.util.Date.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${data}"));
         columnBinding.setColumnName("Data");
-        columnBinding.setColumnClass(String.class);
+        columnBinding.setColumnClass(java.util.Date.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idcompra}"));
         columnBinding.setColumnName("Idcompra");
         columnBinding.setColumnClass(Integer.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
-
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(3).setCellRenderer(datCelRender1);
+        }
 
         jLabel1.setText("Data inicial");
 
@@ -94,10 +97,6 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,6 +113,12 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
                             .addComponent(txt_dtFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(datCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +133,9 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_dtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_dtFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(datCelRender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addGap(20, 20, 20))
         );
@@ -147,7 +154,7 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
         
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(compraList, false); 
         try {
-            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioCompra.jasper", null, dados);
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioVendas.jasper", null, dados);
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             visualizador.setVisible(true);
         } catch (JRException ex) {
@@ -196,6 +203,7 @@ public class JFrmRelatorioVendas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.util.List<view.Compra> compraList;
     private javax.persistence.Query compraQuery;
+    private render.DatCelRender datCelRender1;
     private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

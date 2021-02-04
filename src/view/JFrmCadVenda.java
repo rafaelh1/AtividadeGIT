@@ -351,7 +351,7 @@ public class JFrmCadVenda extends JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false); 
         try {
-            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioCompra.jasper", null, dados);
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioVenda.jasper", null, dados);
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             visualizador.setVisible(true);
         } catch (JRException ex) {
