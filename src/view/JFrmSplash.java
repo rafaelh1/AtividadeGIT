@@ -50,13 +50,13 @@ public class JFrmSplash extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
         getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(240, 410, 260, 12);
+        jProgressBar1.setBounds(0, 410, 500, 12);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/splash.jpeg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 500, 440);
 
-        setSize(new java.awt.Dimension(501, 437));
+        setSize(new java.awt.Dimension(497, 437));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
