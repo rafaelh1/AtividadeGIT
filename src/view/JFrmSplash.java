@@ -9,10 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
-/**
- *
- * @author Rafael
- */
+
 public class JFrmSplash extends javax.swing.JFrame {
 
     private Timer timer;
