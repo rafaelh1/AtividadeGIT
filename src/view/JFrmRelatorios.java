@@ -54,6 +54,7 @@ public class JFrmRelatorios extends javax.swing.JFrame {
 
         jLabel1.setText("Qual relatório você deseja acessar?");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Cart_605508.png"))); // NOI18N
         jButton1.setText("Vendas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +62,7 @@ public class JFrmRelatorios extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cliente.png"))); // NOI18N
         jButton2.setText("Cliente");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +70,7 @@ public class JFrmRelatorios extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder_Safe_877017.png"))); // NOI18N
         jButton3.setText("Vendedor");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +78,7 @@ public class JFrmRelatorios extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconfinder__67ui_2303172.png"))); // NOI18N
         jButton5.setText("Usuário");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,10 +117,10 @@ public class JFrmRelatorios extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(406, 288));
+        setSize(new java.awt.Dimension(406, 269));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
