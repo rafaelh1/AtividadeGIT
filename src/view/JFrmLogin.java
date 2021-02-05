@@ -66,7 +66,7 @@ public class JFrmLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/padlock-157620_640.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lock.png"))); // NOI18N
 
         txt_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,8 +188,7 @@ public class JFrmLogin extends javax.swing.JFrame {
         list1.addAll(query1.getResultList());
         
         if(list1.size()==1){
-            JFrmPrincipal frm = new JFrmPrincipal();
-            frm.setVisible(true);
+            JFrmPrincipal.main(null);
             setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos", "Erro", JOptionPane.ERROR_MESSAGE);
