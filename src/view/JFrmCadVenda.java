@@ -294,10 +294,7 @@ public class JFrmCadVenda extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == idcompraField) {
-                JFrmCadVenda.this.idcompraFieldActionPerformed(evt);
-            }
-            else if (evt.getSource() == saveButton) {
+            if (evt.getSource() == saveButton) {
                 JFrmCadVenda.this.saveButtonActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
@@ -314,6 +311,9 @@ public class JFrmCadVenda extends JPanel {
             }
             else if (evt.getSource() == jFormattedTextField2) {
                 JFrmCadVenda.this.jFormattedTextField2ActionPerformed(evt);
+            }
+            else if (evt.getSource() == idcompraField) {
+                JFrmCadVenda.this.idcompraFieldActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -370,7 +370,7 @@ public class JFrmCadVenda extends JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(list, false); 
         try {
-            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioVenda.jasper", null, dados);
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatoriosVenda.jasper", null, dados);
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             visualizador.setVisible(true);
         } catch (JRException ex) {

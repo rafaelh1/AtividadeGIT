@@ -1,0 +1,17 @@
+Nota bimestral: 8,3 pontos
+
+Não definiram a classe principal do sistema.
+
+
+Formulário de senha: Deveria ter utilizado um campo de senha para esconder a senha do usuário.
+Formulário de Venda: Relatório não funcionou, não achou a origem do arquivo. Nome do arquivo relatorioVendas.jasper, no código foi colocado relatoriosVendas.jasper
+Formulário Principal: Desnecessário um menu de relatórios com vários itens de menu que levam ao mesmo formulário.
+Formulário para exibir relatório com dados de várias tabelas estava descentralizado.
+
+renderizador:ok
+
+Relatórios:
+Relatório várias tabelas: ok
+Relatório Wizard: Não mudou o título do relatório.
+relatório blank: ok
+Não foi criado o relatório com parâmetros.
